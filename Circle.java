@@ -1,12 +1,12 @@
 import java.awt.*;import javax.swing.*;
 public class Circle extends Shape
 {
-       private Point Midpoint;
+       private Point midpoint;
        private double radius;
        
        public Circle(Point x, double y)
        {
-              Midpoint=x;
+              midpoint=x;
               if(y>0.0)
                        radius=y;
               else
@@ -15,7 +15,7 @@ public class Circle extends Shape
 
        public Point getMidpoint()
        {
-              return Midpoint;
+              return midpoint;
        }
 
        public double getRadius()
@@ -25,25 +25,25 @@ public class Circle extends Shape
        
        public void setMidpoint(Point x)
        {
-              Midpoint=x;
+              midpoint=x;
        }
        
-       public void Move(double dx, double dy)
+       public void move(double dx, double dy)
        {
-              Midpoint.Move(dx,dy);
+              midpoint.move(dx,dy);
        }
 
        public String toString()
        {
-              return "<Circle("+Midpoint+","+radius+")>";
+              return "<Circle("+midpoint+","+radius+")>";
        }
        
        public void paint(Graphics g)
        {
               super.paint(g);
               //Zet de x-coordinaat, y-coordinaat en straal over in integers
-              int x=(int)Midpoint.getX();
-              int y=(int)Midpoint.getY();
+              int x=(int)midpoint.getX();
+              int y=(int)midpoint.getY();
               int r=(int)radius;
               //Tekent een ovaal gebaseert op het gegeven middelpunt, met de breedte een 
               //hoogte gelijk aan 2 keer de straal

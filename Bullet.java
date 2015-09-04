@@ -8,7 +8,7 @@ public class Bullet extends Shape
               origin=x;
        }
        
-       public Point[] Shaper()
+       public Point[] shaper()
        {
               Point[] res=new Point[4];
               res[0]=new Point(origin.getX()-2,origin.getY()+10);
@@ -20,36 +20,36 @@ public class Bullet extends Shape
 
        public Point getPoint1()
        {
-              Point[] res=Shaper();
+              Point[] res=shaper();
               return res[0];
        }
        
        public Point getPoint2()
        {
-              Point[] res=Shaper();
+              Point[] res=shaper();
               return res[1];
        }
 
        public Point getPoint3()
        {
-              Point[] res=Shaper();
+              Point[] res=shaper();
               return res[2];
        }
 
        public Point getPoint4()
        {
-              Point[] res=Shaper();
+              Point[] res=shaper();
               return res[3];
        }
        
-       public void Move(double dx,double dy)
+       public void move(double dx,double dy)
        {
-              origin.Move(0,dy);
+              origin.move(0,dy);
        }
 
        public String toString()
        {
-              Point[] res=Shaper();
+              Point[] res=shaper();
               return "<Bullet("+res[0]+","+res[1]+","+res[2]+","+res[3]+")>";
        }
 
@@ -57,7 +57,7 @@ public class Bullet extends Shape
        {
               super.paint(g);
               //Zet de x-coordinaten en y-coordinaten over in integers
-              Point[] res=Shaper();
+              Point[] res=shaper();
               int x1=(int)res[0].getX();
               int y1=(int)res[0].getY();
               int x2=(int)res[1].getX();

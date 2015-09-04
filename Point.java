@@ -24,7 +24,7 @@ public class Point
               return "<Point("+x+", "+y+")>";
        }
        
-       public void Move(double dx, double dy)
+       public void move(double dx, double dy)
        {
               x=x+dx;
               y=y+dy;

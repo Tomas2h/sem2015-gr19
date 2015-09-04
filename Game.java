@@ -4,13 +4,13 @@ public class Game extends JFrame implements KeyListener
        //private Point POrigin;
        //private Triangle P;
        //private Circle A;
-       private ShapeList Shapes;
+       private ShapeList shapes;
        private Timer timer=new Timer();
-       private boolean Projectile=false;
+       private boolean projectile=false;
 
-       public Game(ShapeList S)
+       public Game(ShapeList list)
        {
-              Shapes=S;
+              shapes=list;
               setTitle("Space Invaders");
               setBounds(0,0,500,500);
               Container c=getContentPane();
@@ -24,48 +24,47 @@ public class Game extends JFrame implements KeyListener
        {
               super.paint(g);
               g.setColor(Color.white);
-              Shapes.paint(g);
+              shapes.paint(g);
        }
 
        public void keyReleased(KeyEvent e){}
        public void keyTyped(KeyEvent e){}
-
        public void keyPressed(KeyEvent e)
        {
               if(e.getKeyCode()==KeyEvent.VK_LEFT)
               {
-                    Shapes.Get(0).Move(-10.0,0.0);
+                    shapes.get(0).move(-10.0,0.0);
                     repaint();
               }
               if(e.getKeyCode()==KeyEvent.VK_RIGHT)
               {
-                    Shapes.Get(0).Move(10.0,0.0);
+                    shapes.get(0).move(10.0,0.0);
                     repaint();
               }
               
               if(e.getKeyCode()==KeyEvent.VK_UP)
               {
-                    Point BOrigin=Shapes.Get(0).getPoint1();
-                    Bullet B=new Bullet(BOrigin);
-                    Shapes.Add(B);
+                    Point bOrigin=shapes.get(0).getPoint1();
+                    Bullet b=new Bullet(bOrigin);
+                    shapes.add(b);
                     repaint();
-                    Projectile=true;
+                    projectile=true;
               }
        }
 
        public static void main (String[] args)
        {
-              Point POrigin=new Point(250,460);
-              Triangle P=new Triangle(POrigin,20);
+              Point pOrigin=new Point(250,460);
+              Triangle p=new Triangle(pOrigin,20);
 
-              Point AOrigin=new Point(250,60);
-              Circle A=new Circle(AOrigin,20);
+              Point aOrigin=new Point(250,60);
+              Circle a=new Circle(aOrigin,20);
 
-              ShapeList Chars=new ShapeList(3);
-              Chars.Add(P);
-              Chars.Add(A);
+              ShapeList chars=new ShapeList(3);
+              chars.add(p);
+              chars.add(a);
 
-              new Game(Chars);
+              new Game(chars);
        }
 
 }

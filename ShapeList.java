@@ -1,16 +1,20 @@
 import java.awt.*;import javax.swing.*;
 public class ShapeList extends JFrame
 {
-       private Shape[] Shapes;
+       private Shape[] shapes;
        private int N;
        
        public ShapeList(int capacity)
        {
               N=0;
               if(capacity>0)
-                    Shapes=new Shape[capacity];
+              {
+                    shapes=new Shape[capacity];
+              }
               else
-                    Shapes=new Shape[0];
+              {
+                    shapes=new Shape[0];
+              }
        }
 
        public int getAmount()
@@ -20,18 +24,20 @@ public class ShapeList extends JFrame
        
        public int getLength()
        {
-              return Shapes.length;
+              return shapes.length;
        }
        
-       public void Add(Shape v)
+       public void add(Shape v)
        {
-              if(N<Shapes.length)
+              if(N<shapes.length)
               {
-                    Shapes[N]=v;
+                    shapes[N]=v;
                     N=N+1;
               }
               else
+              {
                   System.out.println("The Shapelist has reached its capacity");
+              }
        }
        
        //public void Delete(Shape v)
@@ -39,30 +45,32 @@ public class ShapeList extends JFrame
        //
        //}
        
-       public Shape Get(int i)
+       public Shape get(int i)
        {
               if(0<=i&&i<N)
               {
-                    return Shapes[i];
+                    return shapes[i];
               }
               else
+              {
                     return null;
+              }
        }
 
-      public void Set(int i,Shape v)
+      public void set(int i,Shape v)
       {
               if(0<=i&&i<N)
               {
-                    Shapes[i]=v;
+                    shapes[i]=v;
                     //System.out.println(Shapes[i].toString());
               }
       }
 
-      public int Index(Shape v)
+      public int index(Shape v)
       {
-              for(int i=0;i!=Shapes.length;i++)
+              for(int i=0;i!=shapes.length;i++)
               {
-                    if(Shapes[i]==v)
+                    if(shapes[i]==v)
                     {
                           return i;
                     }
@@ -70,11 +78,11 @@ public class ShapeList extends JFrame
               return -1;
       }
       
-      public void Move(double dx, double dy)
+      public void move(double dx, double dy)
       {
               for(int i=0;i!=N;i++)
               {
-                    Shapes[i].Move(dx,dy);
+                    shapes[i].move(dx,dy);
               }
       }
       
@@ -84,10 +92,13 @@ public class ShapeList extends JFrame
              for(int i=0;i<N;i++)
              {
                     if(i==0)
-                            res=res+Shapes[i].toString();
-
+                    {
+                            res=res+shapes[i].toString();
+                    }
                     else
-                            res=res+","+Shapes[i].toString();
+                    {
+                            res=res+","+shapes[i].toString();
+                    }
              }
              res=res+"]>";
              return res;
@@ -97,7 +108,7 @@ public class ShapeList extends JFrame
       {
              for(int i=0;i!=N;i++)
              {
-                     Shapes[i].paint(g);
+                     shapes[i].paint(g);
              }
       }
 }
